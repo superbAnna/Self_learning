@@ -21,8 +21,11 @@ def softmax(x):
     x_sum = np.sum(x,axis=1,keepdims=True)
     s = x_exp/x_sum
     return s
-x = np.array([
-    [9, 2, 5, 0, 0],
-    [7, 5, 0, 0 ,0]])
-print("softmax(x) = " + str(softmax(x)))
+#2.7 实现损失函数
+def l1(yhat,y):
+    l1loss = np.sum(np.abs(y-yhat))
+    return l1loss
+def l2(yhat,y):
+    l2loss = np.sum(np.dot(y-yhat,(y-yhat).T))
+    return l2loss
 
